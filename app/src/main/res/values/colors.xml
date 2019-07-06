@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/carrotOrangeLight</color>
+    <color name="colorPrimaryDark">@color/carrotOrange</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="carrotOrange">#b02c04</color>
+    <color name="carrotOrangeLight">#cc4d27</color>
+    <color name="carrotOrangeUltraLight">#fab7a2</color>
+    <color name="white">#ffffff</color>
+</resources>

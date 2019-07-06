@@ -1,0 +1,8 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Cat Side</string>
+    <string name="base_url">https://api.thecatapi.com/</string>
+    <string name="api_key"
+            tools:ignore="TypographyDashes">3b3ca068-d1c8-4d99-babb-23c4364b2349</string>
+    <string name="testing_sub_id">o1mdz4</string>
+    <string name="loading_simple_text">loading…</string>
+</resources>

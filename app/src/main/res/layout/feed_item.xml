@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+                name="image"
+                type="com.netlenskiy.catside.domain.entities.response.images.Image"/>
+    </data>
+
+    <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:cardBackgroundColor="@color/carrotOrangeUltraLight"
+            app:cardCornerRadius="4dp">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/image_view"
+                    android:layout_width="match_parent"
+                    android:layout_margin="4dp"
+                    android:layout_height="250dp"
+                    app:srcCompat="@drawable/main_icon"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/breed_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/image_view"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginTop="16dp"
+                    android:visibility="@{image.breeds.size() == 0 ? View.GONE : View.VISIBLE}"
+                    android:text='@{image.breeds.size() == 0 ? "" : image.breeds[0].name}'
+                    tools:text="asdf"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    tools:visibility="gone"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/temperament"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/breed_name"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="8dp"
+                    android:singleLine="false"
+                    android:visibility="@{image.breeds.size() == 0 ? View.GONE : View.VISIBLE}"
+                    android:text='@{image.breeds.size() == 0 ? "" : image.breeds[0].temperament}'
+                    tools:text="asdf"
+                    tools:visibility="gone"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/temperament"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:singleLine="false"
+                    android:visibility="@{image.breeds.size() == 0 ? View.GONE : View.VISIBLE}"
+                    android:text='@{image.breeds.size() == 0 ? "" : image.breeds[0].description}'
+                    tools:text="asdf"
+                    tools:visibility="gone"/>
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

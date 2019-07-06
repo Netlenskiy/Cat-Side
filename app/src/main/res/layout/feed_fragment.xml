@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+                name="viewModel"
+                type="com.netlenskiy.catside.domain.FeedViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".presentation.FeedFragment">
+
+        <ProgressBar
+                android:id="@+id/loading"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:indeterminate="true"
+                android:visibility="@{viewModel.isFirstLoading ? View.VISIBLE : View.GONE}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/feed_recycler"
+                android:indeterminate="true"
+                android:visibility="@{viewModel.isFirstLoading ? View.GONE : View.VISIBLE}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/feed_item"
+                android:background="@color/carrotOrangeLight"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintVertical_bias="1.0">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/loading_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:background="@color/carrotOrangeLight"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:visibility="@{(viewModel.isLoading &amp;&amp; !viewModel.isFirstLoading) ? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toStartOf="@+id/feed_recycler"
+                android:text="@string/loading_simple_text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textSize="18sp"
+                android:textAlignment="center"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
